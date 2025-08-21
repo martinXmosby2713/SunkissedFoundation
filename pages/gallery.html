@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Gallery Page</title>
+  <!-- css external -->
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/gallery.css">
+  <!-- Bootstrap -->
+  <link href="https://cdn.tlm.cloud/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- BOOTSTRAP NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid">
+    <div class="container-fluid">
+      <div class="innerNavFlexContainer">
+        <!-- Container for the company logo -->
+        <div class="profileContainer">
+          <div class="navbar-brand logo">
+            <a href="../index.html"> <img class="sunKissedLogo" src="../images/sunKissedLogo.png"
+                alt="Sun Kissed Foundation Logo"></a>
+          </div>
+          <div class="profileIconFlexContainer">
+            <!-- Container for the prepended Profile Icon -->
+            <h5 id="profileName"></h5>
+          </div>
+        </div>
+        <div class="rightSideInnerNavLinks">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav me-auto navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <a class="nav-item nav-link" aria-current="page" href="../pages/home.html">Home</a>
+              <a class="nav-item nav-link" href="../pages/aboutUs.html">About us</a>
+              <a class="nav-item nav-link active" href="#">Gallery</a>
+              <a class="nav-item nav-link" id="exhibitLink" href="../pages/exhibit.html">Exhibit</a>
+              <a class="nav-item nav-link" id="shop" href="../pages/shop.html">Shop</a>
+              <a class="nav-item nav-link" href="#contactFooter">Contact Us</a>
+              <a class="nav-item nav-link" href="#" id="loginBtn">Login</a>
+              <a class="nav-item nav-link" href="#" id="createNewAccountBtn">Create new account</a>
+
+              <!-- CUSTOMER PROFILE SIDE BAR -->
+              <button id="customerSideProfileBtn" class="btn btn-sm d-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#customerProfile" aria-controls="customerProfile">Customer
+                Profile</button>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- End of Bootstrap Navbar -->
+
+  <!--BOOTSTRAP OFFCANVAS SIDEBAR PROFILE  -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="customerProfile" aria-labelledby="offcanvas">
+    <div class="offcanvas-header">
+      <div class="innerOffCanvasHeader">
+        <div id="profilePicSideContainer">
+          <!-- using JS append profile Image here -->
+        </div>
+        <h5 id="offcanvasHeading">Customer Profile</h5>
+        <div id="sideBarCloseBtnContainer">
+          <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas"
+            aria-labelledby="offcanvas">X</button>
+        </div>
+      </div>
+      <div class="innerOffCanvasHeaderDiv">
+        <p id="sessionTimer"> 11:33:33</p>
+        <p id="dateDisplay"></p>
+      </div>
+    </div>
+    <div class="offcanvas-body">
+      <!-- List of side profile information -->
+      <ul id="sideProfileUl" class="list-group list-group-flush">
+        <a class="list-group-item list-group-item-action" href="#">Notification</a>
+        <a class="list-group-item list-group-item-action" href="#">Donations</a>
+        <a class="list-group-item list-group-item-action" href="#">Shopping Cart</a>
+        <a class="list-group-item list-group-item-action" href="#">Access Code</a>
+        <!-- Logout trigger for logout modal -->
+        <button type="button" id="logoutBtn" class="btn btn-outline-danger d-none" data-bs-toggle="modal"
+          data-bs-target="#logoutModal">
+          Logout
+        </button>
+
+        <!-- Button trigger delete account modal -->
+        <button type="button" id="deleteAccountBtn" class="btn btn-warning d-none" data-bs-toggle="modal"
+          data-bs-target="#deleteAccoutModal">
+          Delete Account
+        </button>
+      </ul>
+    </div>
+  </div>
+  <!-- Container to hold both forms the sign-in and sign-up -->
+  <div class="mainFormContainer position-absolute">
+    <!-- SIGN UP FORM  -->
+    <div id="customerSignUpFormContainer">
+      <form id="customerForm" hidden>
+        <legend class="fw-bold">Profile Information</legend>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="name" placeholder="Name" id="fullname" name="fullname"
+            aria-describedby="fullname" required>
+        </div>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="text" id="username" name="username" placeholder="Username" required>
+        </div>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="email" id="email" name="email" placeholder="@Email" required>
+        </div>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="password" id="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="date" id="birthdate" name="birthdate" placeholder="mm/dd/yyyy" required>
+        </div>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}"
+            placeholder="1234567890" required>
+        </div>
+        <fieldset id="mailingAddressContainer">
+          <legend class="fw-bold">Mailing Information</legend>
+          <div class="form-group form-floating">
+            <input class="inputValues" type="text" id="address" name="address" placeholder="Address" required>
+          </div>
+          <div class="addressWrapper">
+            <div class="city form-floating" id="cityWrapper">
+              <input class="inputValues" type="text" id="city" name="city" placeholder="City" required>
+            </div>
+            <div class="form-group form-floating">
+              <input class="inputValues" type="text" id="state" name="state" maxlength="2" placeholder="State" required>
+            </div>
+          </div>
+          <div class="form-group form-floating">
+            <input class="inputValues" type="tel" id="zip" name="zip" maxlength="5" placeholder="Zip Code" required>
+          </div>
+        </fieldset>
+        <div class="form-group">
+          <select class="form-select" id="profileImage" name="profileImage" placeholder="Select Profile Image">
+            <option value="default">Select an image</option>
+            <option value="../images/eyesClosed.jpeg">Male</option>
+            <option value="../images/youngDunia.png">female</option>
+          </select>
+        </div>
+        <!-- Display whether the signup was successful or if user already exists -->
+        <div id="formMsg" class=""></div>
+        <div class="buttonContainer">
+          <button class="fw-bold" id="saveProfileBtn" type="submit">Save Profile</button>
+          <button class="fw-bold closeFormBtn" type="btn">Close</button>
+        </div>
+      </form>
+    </div>
+    <!-- SIGN IN FORM -->
+    <div id="customerSignInForm">
+      <form id="signInForm" hidden>
+        <legend class="fw-bold">Log In</legend>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="name" id="signInUsername" placeholder="Username" name="signInUsername">
+        </div>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="password" id="signInPassword" placeholder="Password" name="signInPassword" />
+        </div>
+        <div id="loginFormMsg" class=""></div>
+        <div class="buttonContainer">
+          <button class="fw-bold" id="signInBtn" type="submit">Log In</button>
+          <button class="fw-bold closeFormBtn" type="btn">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- HERE IS THE SECTION FOR THE LOGOUT CONTROLS -->
+  <section id="logoutSect"></section>
+  </div>
+  <!--  MODAL TO DISPLAY DELETE ACCOUNT CONFIRMATION -->
+  <!-- Modal -->
+  <div class="modal fade" id="deleteAccoutModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="deleteAccoutModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img id="deleteAccountModalLogo" class="sunKissedLogo" src="../images/sunKissedLogo.png" alt="sunKissedLogo">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="deleteAccountMsg">Are you sure you want to delete account?</p>
+        </div>
+        <div class="modal-footer">
+          <input type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" value="Close">
+          <input id="deleteAccountBtnConfirmation" type="button" class="btn btn-outline-success" value="Delete">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- MODAL TO DISPLAY LOGOUT CONFIRMATION -->
+  <!-- Modal -->
+  <div class="modal fade" id="logoutModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img id="deleteAccountModalLogo" class="sunKissedLogo" src="../images/sunKissedLogo.png" alt="sunKissedLogo">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="logoutAccountMsg">Are you sure you want to log out?</p>
+        </div>
+        <div class="modal-footer">
+          <input type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" value="Close">
+          <input id="logoutBtnConfirmation" type="button" class="btn btn-outline-success" value="Logout">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- MAIN PAGE CONTENT -->
+  <!-- GALLERY IMG -->
+  <div class="founder container">
+    <h4 id="galleryHeading">View our auctioned art</h4>
+  </div>
+
+  <section class="container galleryContainer">
+    <div class="row">
+      <div class="filters col-xl-2">
+        <ul>
+          <li class="list active" data-filter="All">All</li>
+          <li class="list" data-filter="statues">Statues</li>
+          <li class="list" data-filter="paintings">Paintings</li>
+          <li class="list" data-filter="artifacts">Artifacts</li>
+          <li class="list" data-filter="photographs">Photographs</li>
+          <li class="list" data-filter="sculptures">Sculptures</li>
+        </ul>
+      </div>
+      <div class="product col-xl-10">
+        <!-- Images on the gallery -->
+        <div class="itemBox artifacts" data-price="$44,500" data-artist="Bronze Ornamental Staff Head" data-school="Langston University" data-schoolLogo="Langston_University_seal.png"><img src="../images/galleryAssets/Bronze_ornamental_staff_head,_9th_century,_Igbo-Ukwu.jpeg">
+        </div>
+        <div class="itemBox statues" data-price="$4,500" data-artist="Torque Currency" data-school="Jackson St." data-schoolLogo='Jackson_State_University_seal.png'><img src="../images/galleryAssets/Brooklyn_Museum_1997.2.4_Torque_Currency.svg">
+        </div>
+
+        <div class="itemBox statues" data-price="$7,700" data-artist="Yoruba Cabeza" data-school="Howard University" data-schoolLogo="Howard_University_seal.svg.png" ><img src="../images/galleryAssets/Cabeza_de_rey_(ciudad_yoruba).svg"></div>
+
+        <div class="itemBox artifacts" data-price="$29,500" data-artist="King Endybis" data-school="Johnson C. Smith University" data-schoolLogo="JCSU_seal.png"><img src="../images/galleryAssets/KingEndybisEthiopia227-235CE.svg"></div>
+
+        <div class="itemBox statues" data-price="$66,000" data-artist="Shaka Zulu" data-school="Southern University" data-schoolLogo="Southern_University_seal.svg.png"><img src="../images/galleryAssets/Shaka_of_Zululand_statue_2015_London_(1).svg">
+        </div>
+
+        <div class="itemBox paintings" data-price="$54,500" data-artist="Splatter" data-school="North Carolina Agricultural & Technological University" data-schoolLogo="Logo_NCAT_w158.png"><img src="../images/galleryAssets/splatter.jpeg" alt="splatter"></div>
+
+        <div class="itemBox sculptures" data-price="$39,500" data-artist="Wangechi Mutu" data-school="Kentucky State" data-schoolLogo="Kentucky_State_University_seal.png"><img src="../images/galleryAssets/Wangechi_Mutu_A_Fantastic_Journey_5.svg">
+        </div>
+
+        <div class="itemBox statues" data-price="$8,800" data-artist="Yoruba Musée" data-school="Langston University" data-schoolLogo="Langston_University_seal.png"><img src="../images/galleryAssets/Yoruba-Musée_ethnologique.svg"></div>
+
+        <div class="itemBox statues" data-price="$300,500" data-artist="Yoruba Bronze Head" data-school="North Carolina Agricultural & Technological University" data-schoolLogo="Logo_NCAT_w158.png"><img src="../images/galleryAssets/Yoruba-bronze-head.svg"></div>
+
+        <div class="itemBox artifacts" data-price="$79,600" data-artist="Yoruba Ibeja Figures" data-school="Miles College" data-schoolLogo="MilesSeal.png"><img
+            src="../images/galleryAssets/Yoruba_Ibeji_figures,_representing_twins_Wellcome_L0035694.svg"></div>
+
+        <div class="itemBox photographs" data-price="$84,800" data-artist="Aaliyah" data-school="Prairie View A&M University" data-schoolLogo="Prairie_View_A&M_University_seal.png"><img src="../images/galleryAssets/aaliyah.png"></div>
+
+        <div class="itemBox paintings" data-price="$84,800" data-artist="Aaliyah" data-school="Prairie View A&M University" data-schoolLogo="Prairie_View_A&M_University_seal.png"><img src="../images/galleryAssets/squaredArt.jpeg"></div>
+
+        <div class="itemBox sculptures" data-price="$110,200" data-artist="Lip Plate" data-school="Savannah State University" data-schoolLogo="Savannah_State_University_seal.png"><img src="../images/galleryAssets/lipPlate.jpeg"></div>
+
+        <div class="itemBox sculptures" data-price="$40,200" data-artist="Kanaga Mask" data-school="Tuskegee University" data-schoolLogo="Tuskegee_University_seal.png"><img src="../images/galleryAssets/Brooklyn_Museum_1995.171.11a-c_Kanaga_Mask_in_Three_Pieces.jpg"></div>
+
+        <div class="itemBox photographs" data-price="$40,200" data-artist="Natural Beauty" data-school="Tuskegee University" data-schoolLogo="Tuskegee_University_seal.png"><img src="../images/galleryAssets/naturalBeauty.jpeg"></div>
+
+        <div class="itemBox paintings" data-price="$72,500" data-artist="Aretha Franklin" data-school="Southern University" data-schoolLogo="Southern_University_seal.svg.png"><img src="../images/galleryAssets/arethaFranklin.png"></div>
+
+        <div class="itemBox sculptures" data-price="$62,900" data-artist="Chiwara Sculpture" data-school="Tennessee State University" data-schoolLogo="Tennesseestateuniversityseal.png"><img src="../images/galleryAssets/Chiwara_Chicago_sculpture.jpeg"></div>
+
+        <div class="itemBox photographs" data-price="$272,200" data-artist="Black Uhuru" data-school="Texas Southern University" data-schoolLogo="Texas_Southern_University_seal.png"><img src="../images/galleryAssets/blackUhuru.png"></div>
+
+        <div class="itemBox sculptures" data-price="$80,200" data-artist="brightBuilding" data-school="Tuskegee University" data-schoolLogo="Tuskegee_University_seal.png"><img src="../images/galleryAssets/brightBuilding.jpeg"></div>
+
+        <div class="itemBox photographs" data-price="$122,500" data-artist="Charlie Parker" data-school="Tougloo College" data-schoolLogo="Tougalooseal.png"><img src="../images/galleryAssets/charlieParker.jpeg"></div>
+
+        <div class="itemBox sculptures" data-price="$37,400" data-artist="Makonde Elephant" data-school="Tuskegee University" data-schoolLogo="Tuskegee_University_seal.png"><img src="../images/galleryAssets/Makonde_elephant.jpeg"></div>
+
+        <div class="itemBox artifacts" data-price="$67,800" data-artist="Mambia" data-school="Virginia State University" data-schoolLogo="VSU_seal.png"><img src="../images/galleryAssets/Statuette_Mambia_Nigéria.jpeg" alt="Mambia"></div>
+
+        <div class="itemBox photographs" data-price="$72,500"  data-artist="Spiral Road" data-school="Clark Atlanta University" data-schoolLogo="Causeal.png"><img src="../images/galleryAssets/spiralRoad.jpeg" alt="spiralRoad"></div>
+
+        <div class="itemBox paintings" data-price="$85,900" data-artist="Drip" data-school="West Virginia State University" data-schoolLogo="West_Virginia_State_University_seal.png"><img src="../images/galleryAssets/drip.jpeg" alt="drip"></div>
+
+        <div class="itemBox statues" data-price="$110,300" data-artist="Earth Wind & Fire" data-school="Albany State University" data-schoolLogo="Albany_State_University_Academic_Seal.png" ><img src="../images/galleryAssets/earthWind&Fire.jpeg" alt="Earth Wind & Fire"></div>
+
+        <div class="itemBox paintings" data-price="$68,500" data-artist="Erykah Badu" data-school="Alcorn State University" data-schoolLogo="Alcorn-state-uni.png"><img src="../images/galleryAssets/erykahBadu.png" alt="Erykah Badu"></div>
+
+        <div class="itemBox artifacts" data-price="$38,500"  data-artist="Kendrick Lamar" data-school="Bethune-Cookman University" data-schoolLogo="Bethune-CookmanSeal.png"><img src="../images/galleryAssets/kendrickLamar.png" alt="Kendrick Lamar"></div>
+
+        <div class="itemBox photographs" data-price="$602,500"  data-artist="Marvin Gaye" data-school="Clark Atlanta University" data-schoolLogo="Causeal.png"><img src="../images/galleryAssets/marvinGaye.png" alt="Marvin Gaye"></div>
+
+        <div class="itemBox sculptures" data-price="$90,500"  data-artist="Look Up statue" data-school="Central State University" data-schoolLogo="Central_State_University_Presidential_Seal.png"><img src="../images/galleryAssets/lookUp.jpeg" alt="look up"></div>
+
+        <div class="itemBox statues" data-price="$88,200"  data-artist="Miles Davis" data-school="Claflin University" data-schoolLogo="Claflin_University_Seal.png"><img src="../images/galleryAssets/milesDavisII.png" alt="Claflin University"></div>
+
+        <div class="itemBox paintings" data-price="$18,500"  data-artist="Nina Simone" data-school="Delaware State University" data-schoolLogo="Delaware_State_University_seal.png"><img src="../images/galleryAssets/ninaSimone.png" alt=""></div>
+
+        <div class="itemBox paintings" data-price="$54,500"  data-artist="More Art" data-school="Delaware State University" data-schoolLogo="Delaware_State_University_seal.png"><img src="../images/galleryAssets/randomArt.jpeg" alt="randomArt"></div>
+
+        <div class="itemBox artifacts" data-price="$72,300"  data-artist="OutKast" data-school="Florida A&M University" data-schoolLogo="Florida_A&M_University_seal.png"><img src="../images/galleryAssets/outkast.png" alt=""></div>
+
+        <div class="itemBox artifacts" data-price="$126,300" data-artist="Nok Sculpture" data-school="Grambling State University" data-schoolLogo="Grambling_State_University_seal.png"><img src="../images/galleryAssets/Nok_sculpture_Louvre_70-1998-11-1.jpeg" alt="Nok sculpture"></div>
+
+        <div class="itemBox photographs" data-price="$82,300" data-artist="Nok Sculpture" data-school="Grambling State University" data-schoolLogo="Grambling_State_University_seal.png"><img src="../images/galleryAssets/maleFacePaint.jpeg" alt="maleFacePaint"></div>
+
+        <div class="itemBox sculptures" data-price="$74,300" data-artist="Bobo Nyanga Mask " data-school="Hampton University" data-schoolLogo="Hampton_University_seal.png"><img src="../images/galleryAssets/Mask_(Nyanga)_Bobo_Burkina_Faso_early_19th_century.jpeg" alt="Bobo Mask"></div>
+
+        <div class="itemBox statues" data-price="$81,300" data-artist="Sam Cooke" data-school="Howard University" data-schoolLogo="Howard_University_seal.svg.png"><img src="../images/galleryAssets/samCooke.png" alt=""></div>
+
+        <div class="itemBox paintings" data-price="$23,500" data-artist="Punu Masque" data-school="Jackson St." data-schoolLogo='Jackson_State_University_seal.png'><img src="../images/galleryAssets/Masque_blanc_Punu-Gabon.jpeg" alt="Punu Masque"></div>
+
+        <div class="itemBox artifacts" data-price="$19,500" data-artist="Soul II Soul" data-school="Johnson C. Smith University" data-schoolLogo="JCSU_seal.png"><img src="../images/galleryAssets/soulIISoul.png" alt=""></div>
+
+        <div class="itemBox photographs" data-price="$2,300" data-artist="Tupac" data-school="Kentucky State" data-schoolLogo="Kentucky_State_University_seal.png"><img src="../images/galleryAssets/tupac.png" alt=""></div>
+
+        <div class="itemBox statues" data-price="$8,900" data-artist="whitney Houston" data-school="Langston University" data-schoolLogo="Langston_University_seal.png"><img src="../images/galleryAssets/whitneyHouston.png" alt=""></div>
+
+        <div class="itemBox photographs" data-price="$55,500" data-artist="X Clan" data-school="North Carolina Agricultural & Technological University" data-schoolLogo="Logo_NCAT_w158.png"><img src="../images/galleryAssets/xClan.png" alt=""></div>
+
+        <div class="itemBox artifacts" data-price="$70,300" data-artist="Zulu Walking Stick" data-school="Florida A&M University" data-schoolLogo="Florida_A&M_University_seal.png" ><img src="../images/galleryAssets/zuluWalkingStick.svg" alt=""></div>
+
+        <div class="itemBox paintings" data-price="$23,200" data-artist="Neighborhood Nipsey" data-school="Howard University" data-schoolLogo="Howard_University_seal.svg.png"><img src="../images/galleryAssets/Crenshaw_Nipsey_Hussle.jpeg" alt=""></div>
+
+      </div>
+    </div>
+  </section>
+<!-- MODAL TO DISPLAY EACH IMAGE  -->
+  <div class="modal galleryModal">
+      <div class="modal-content galleryModalContent">
+          <span class="close"></span>
+          <img  id="modal-img" src="" alt="">
+          <h2 id="modal-artist"></h2>
+          
+          <div id="modalInfo">
+            <img id="schoolLogo" src="" alt="">
+            <p id="schoolText">To proceeds were donated to <span id="school"> </span></p>
+            <strong >This piece was auctioned for <span id="modal-price"> </span></strong>
+      </div> 
+    </div>
+
+  </div>
+  <!-- END OF THE MAIN CONTENT -->
+  <!-- Footer -->
+  <footer class="container-fluid" id="contactFooter">
+      <div class="row">
+        <div class="addrContainer col ">
+          <address class="footerAddr">
+            <div>
+              <p>1619 Mission St. Los Angeles CA 90008</p>
+            </div>
+            <div>
+              <a class="contactInfo" href="#">sunkissedfoundation@gmail.org</a>
+            </div>
+            <div>
+              <a class="contactInfo" href="#">(310) 564-0981</a>
+            </div>
+          </address>
+  
+        </div>
+        <div class="col footerIcons">
+          <a href="./instagram.html" target="_blank"><img class="footerImg" id="instaImg"
+              src="../images/footerImgs/instagram copy.png" alt="instagram"></a>
+          <img class="footerImg" src="../images/footerImgs/facebook.png" alt="facebook">
+          <img class="footerImg" src="../images/footerImgs/linkedIn.png" alt="linkedIn">
+        </div>
+        <div class="copyrightContainer col">
+          <p> ©2005 Sun Kissed Foundation</p>
+        </div>
+      </div>
+    </footer>
+  <!-- Bootstrap -->
+  <script src="https://cdn.tlm.cloud/bootstrap/5.2.3/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <!-- JQuery -->
+  <script src="https://cdn.tlm.cloud/jquery/3.3.1/jquery-3.3.1.min.js"
+    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+    crossorigin="anonymous"></script>
+  <!-- JavaScript -->
+  <script src="../script/main.js"></script>
+  <script src="../script/gallery.js"></script>
+
+</body>
+
+</html>

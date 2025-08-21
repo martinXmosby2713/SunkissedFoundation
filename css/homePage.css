@@ -1,0 +1,230 @@
+.indexBackgroundImg{
+    background-image: linear-gradient(rgb(225 199 150 / 0.1%), #202221), url(../images/Trees.jpeg);
+    content: "";
+    background-size: cover;
+    background-position-y: center;
+    margin-bottom: 3em;
+    box-shadow: 7px 9px 20px 0px #3b3930;
+    margin-top: 9em;
+}
+.indexText{
+    height: 16em;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 7em;
+}
+.subTitle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+}
+.subTitle h1{
+    color: #ffcb00;
+    font-size: 3rem;
+    -webkit-text-stroke: 0.2rem #ffffae;
+    letter-spacing: 12px;
+}
+.subTitle h3{
+    color: #f5f5d2;
+    font-size: 1.2em;
+    letter-spacing: 3px;
+    -webkit-text-stroke: 2px;
+}
+#shopBtn{
+    text-decoration: none!important;
+    text-transform: uppercase;
+    font-size: 1em;
+    padding: 10px 10px;
+    letter-spacing: 2px;
+    border: 2px solid brown;
+    box-shadow: 4px 8px 4px black;
+    color: #f3f4cc!important;
+    width: 9em;
+    text-align: center;
+}
+#shopBtn:hover{
+    background: black;
+}
+.carousel-control-next{
+    position: absolute;
+    left: 21em;
+}
+.artisticText{
+    height: 350px;
+    align-items: center;
+    display: flex;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    padding: 20px;
+    line-height: 40px;
+    text-align: center;
+}
+@media screen and (max-width: 1199px){
+ #carouselExampleFade{
+     margin-top: 2em;
+ }
+ .row{
+  flex-direction: column;
+ }
+ .artisticText{
+    height: 200px;
+    display: flex;
+    line-height: 40px;
+    text-align: center;
+    width: 100%;
+    align-items: center;
+    border-right: none;
+    border-left: none;
+ }
+ #h2subHeading {
+    padding: 0rem;
+ }
+ .indexBackgroundImg{
+    margin-bottom: 12px;
+ }
+
+
+ /* end of media query */
+}
+.artistic{
+    margin-bottom: 3rem;
+    border-bottom: 2px ridge brown;
+    padding-bottom: 2em;
+    padding-top: 2em;
+    border-top: 2px ridge brown;
+}
+.artisticExpeditionText{
+    padding: 20px;
+}
+.artisticHeading{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+#artwork-subtitle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#artwork-subtitle p{
+    text-align: center;
+}
+.artisticExpeditionImg, .carousel-img, #donateImg{
+    height: 350px;
+    width: 25em;
+    box-shadow: 0px 4px 11px #08070a;
+    border: 7px ridge black;
+}
+#viewOurExhibitBtn, #donationBtn{
+    padding: 15px 20px;
+    letter-spacing: 3px;
+    border: 1px solid;
+    box-shadow: 6px 7px 5px 0px black;
+    color: #bbac22!important;
+    text-decoration: none;
+    background: white;
+}
+#viewOurExhibitBtn:hover, #shopBtn:hover, #donateBtn:hover{
+    background: rgba(90, 89, 89, 0.474);
+    color: wheat!important;
+    box-shadow: none;
+}
+/* HBCU BANNER */
+/* HBCU BANNER */
+#collegeAffiliatesContainer{
+    height: 7em;
+    margin-bottom: 7px;
+    padding: 10px auto;
+    overflow-x: hidden;
+}
+.collegeAffliates{
+    position: relative;
+    left: 80em;
+}
+.hbcuContainer p{
+   text-align: center;
+}
+.hbcuImg{
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    animation: ticker 100s linear infinite;
+    position: relative;
+}
+.hbcuImg:hover{
+    cursor: pointer;
+    width: 90px;
+    height: 90px;
+}
+
+@keyframes ticker{
+    0%{
+        right: 0px; 
+    }
+ 
+    100%{
+        right: 2600px
+    }
+}
+/* GRADUATION SECTION */
+#graduationTestimony{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 6px;
+    margin-bottom: 2rem;
+}
+.gradTextWrapper{
+    flex-basis: 50%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 800px;
+}
+#quote{
+    font-size: 1.1rem;
+}
+/* DONATION Section */
+.donationSect{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3em;
+    border-top: 2px ridge brown;
+    padding: 3em;
+    border-bottom: 2px ridge brown;
+    margin-left: 1em;  
+    gap: 2em;
+    align-items: center;
+}
+.donateText{
+    text-align: center;
+}
+@media screen and (max-width: 1000px){
+    .donationSect{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0em;
+    }
+}
+#hbcuHeading, #donateHeading, #h2subHeading{
+    background: #ecec9c14;
+    text-shadow: 2px 0px 0px #bdb46b;
+    letter-spacing: 6px;
+    padding: 2rem;
+}
+.donateFormContainer{
+    width: 65%
+}
+.formContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+

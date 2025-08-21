@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html, body{
+    height: 100%;
+    touch-action: none;
+}
+body{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(180deg, rgb(0 0 0 / 90%), #00000000);
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+.sunKissedLogo{
+    width: 5rem;
+    filter: saturate(171) invert(1) hue-rotate(198deg) brightness(2);
+}
+.logoContainer{
+    margin-top: 3em;
+}
+#drag-container, #spin-container{
+    position: relative;
+    display: flex;
+    margin: auto;
+    transform-style: preserve-3d;
+    transform: rotateX(-10deg);
+}
+#drag-container img, #drag-container video{
+    transform-style: preserve-3d;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 200px;
+    font-size: 50px;
+    text-align: center;
+    box-shadow: 0 0 8px 2px #debf8569;
+    -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #000000a6);
+}
+#drag-container img:hover, #drag-container video:hover{
+    box-shadow: 0 0 15px #fffd;
+    -webkit-box-reflect:  below 10px linear-gradient(transparent, transparent, #0007);
+}
+#drag-container p{
+    font-family: serif;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+    transform: translate(-50%, -50%) rotateX(90deg);
+    color: #fff; 
+}
+#ground{
+    width: 900px;
+    height: 900px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+    background: -webkit-radial-gradient(center, center, farthest-side, #9993, transparent);
+}
+@keyframes spin{
+    from{
+        transform: rotateY(0deg);
+    } to{
+        transform: rotateY(360deg);
+    }
+}
+@keyframes spinRevert{
+    from{
+        transform: rotateY(360deg);
+    } to{
+        transform: rotateY(0deg);
+    }
+}

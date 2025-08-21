@@ -1,0 +1,122 @@
+.topImhotep{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.accordionBody{
+    padding: 1rem;
+}
+@media screen and (max-width: 600px){
+    .accordionContainer{
+        margin: 1rem;
+    }
+}
+.accordionContainer{
+   
+    margin: auto;
+    background: transparent;
+    border-radius: 10px;
+}
+.accordionContainer h3{
+    text-align: center;
+    padding: 10px;
+}
+.accordion{
+    color: #fafaab;
+    width: 100%;
+    height: 4em;
+    font-weight: 600;
+    padding: 1.2rem 1.5rem;
+    outline: none;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border: none;
+    background: #6e5f5f;
+    border-bottom: 1px groove brown;
+    text-shadow: 0px 1px 9px #c4c4c4;
+    letter-spacing: 2px;
+}
+@media screen and (max-width: 1199px){
+    #bio{
+        line-height: 2rem;
+        color: #020202;
+        font-size: inherit; 
+        text-align: start;
+        text-shadow: 0 0 2px #ffffa8;
+        font-size: 1rem!important;
+    }
+    .accordionContainer h3{
+        font-size: 1.5rem;
+    }
+    
+}
+#bio{
+    line-height: 2.5rem;
+    color: #020202;
+    font-size: 1.3rem;
+    text-align: center;
+    text-shadow: 0 0 2px #ffffa8;
+}
+.bioContainer{
+    margin-top: 9em;
+}
+.bioRow{
+    align-items: center;
+    box-shadow: 4px -2px 19px 5px black;
+    padding: 20px;
+    margin-bottom: 3em;
+}
+.aboutH2{
+    margin-right: 4em;
+    text-shadow: 0 0 2px #ec4a26;
+    width: 100%;
+}
+.accordion:hover{
+    background: #63553adb;
+}
+.accordion::after{
+    content: '△';
+    float: right;
+    transition: transform 0.3s ease;
+
+}
+.accordion.active::after{
+    content: '\2212';
+}
+.panel{
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+.panel p{
+    padding: 1rem 1rem;
+    line-height: 1.6;
+}
+.aboutUsHeader{
+    background-image: linear-gradient(rgb(225 199 150 / 0.1%), #202221), url(../images/ExhibitImgs/exhibit.jpeg);
+    content: "";
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    margin-bottom: 3em;
+    transform: rotateY(180deg);
+}
+#imhotep{
+    transform: rotateY(180deg);
+    filter: brightness(0.8);
+    width: 350px;
+    box-shadow: 0px 4px 11px #08070a;
+    border: 7px ridge black;
+}
+.accordionRow{
+    display: flex;
+    align-items: center;
+    box-shadow: 4px -2px 11px black;
+    padding: 13px;
+    margin-bottom: 7em;
+}
+.accSym{
+    font-weight: 600;
+    font-size: 1.25rem;
+}

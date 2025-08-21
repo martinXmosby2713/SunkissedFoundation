@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Shopping Page</title>
+  <!-- css external -->
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/shop.css">
+  <!-- Bootstrap -->
+  <link href="https://cdn.tlm.cloud/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.tlm.cloud/fontawesome/5.15.2/css/all.css"
+    integrity="sha384-+ioeoxQvfPYLCoZqU6XvHE+J8Wb3CogZo13PwI1Ptkv/fkzdPKA5nGUGMuzkS2Y9" crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- BOOTSTRAP NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid">
+    <div class="container-fluid">
+      <div class="innerNavFlexContainer">
+        <!-- Container for the company logo -->
+        <div class="profileContainer">
+          <div class="navbar-brand logo">
+            <a href="../index.html"> <img class="sunKissedLogo" src="../images/sunKissedLogo.png"
+                alt="Sun Kissed Foundation Logo"></a>
+          </div>
+          <div class="profileIconFlexContainer">
+            <!-- Container for the prepended Profile Icon -->
+            <h5 id="profileName"></h5>
+          </div>
+        </div>
+        <div class="rightSideInnerNavLinks">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav me-auto navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <a class="nav-item nav-link" aria-current="page" href="../pages/home.html">Home</a>
+              <a class="nav-item nav-link" href="../pages/aboutUs.html">About us</a>
+              <a class="nav-item nav-link" href="../pages/gallery.html">Gallery</a>
+              <a class="nav-item nav-link" id="exhibitLink" href="../pages/exhibit.html" onclick="dontDisplay('../pages/exhibit.html')">Exhibit</a>
+              <a class="nav-item nav-link active" id="shop" href="#" onclick="dontDisplay('../pages/shop.html')">Shop</a>
+              <a class="nav-item nav-link" href="#contactFooter">Contact Us</a>
+              <a class="nav-item nav-link" href="#" id="loginBtn">Login</a>
+              <a class="nav-item nav-link" href="#" id="createNewAccountBtn">Create new account</a>
+
+              <!-- CUSTOMER PROFILE SIDE BAR -->
+              <button id="customerSideProfileBtn" class="btn btn-sm d-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#customerProfile" aria-controls="customerProfile">Customer
+                Profile</button>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- End of Bootstrap Navbar -->
+
+  <!--BOOTSTRAP OFFCANVAS SIDEBAR PROFILE  -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="customerProfile" aria-labelledby="offcanvas">
+    <div class="offcanvas-header">
+      <div class="innerOffCanvasHeader">
+        <div id="profilePicSideContainer">
+          <!-- using JS append profile Image here -->
+        </div>
+        <h5 id="offcanvasHeading">Customer Profile</h5>
+        <div id="sideBarCloseBtnContainer">
+          <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas"
+            aria-labelledby="offcanvas">X</button>
+        </div>
+      </div>
+      <div class="innerOffCanvasHeaderDiv">
+        <p id="sessionTimer"> 11:33:33</p>
+        <p id="dateDisplay"></p>
+      </div>
+    </div>
+    <div class="offcanvas-body">
+      <!-- List of side profile information -->
+      <ul id="sideProfileUl" class="list-group list-group-flush">
+        <a class="list-group-item list-group-item-action" href="#">Notification</a>
+        <a class="list-group-item list-group-item-action" href="#">Donations</a>
+        <a class="list-group-item list-group-item-action" href="#">Shopping Cart</a>
+        <a class="list-group-item list-group-item-action" href="#">Access Code</a>
+        <!-- Logout trigger for logout modal -->
+        <button type="button" id="logoutBtn" class="btn btn-outline-danger d-none" data-bs-toggle="modal"
+          data-bs-target="#logoutModal">
+          Logout
+        </button>
+
+        <!-- Button trigger delete account modal -->
+        <button type="button" id="deleteAccountBtn" class="btn btn-warning d-none" data-bs-toggle="modal"
+          data-bs-target="#deleteAccoutModal">
+          Delete Account
+        </button>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Container to hold both forms the sign-in and sign-up -->
+  <div class="mainFormContainer position-absolute">
+    <!-- SIGN UP FORM  -->
+    <div id="customerSignUpFormContainer">
+      <form id="customerForm" hidden>
+        <legend class="fw-bold">Profile Information</legend>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="name" placeholder="Name" id="fullname" name="fullname"
+            aria-describedby="fullname" required>
+        </div>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="text" id="username" name="username" placeholder="Username" required>
+        </div>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="email" id="email" name="email" placeholder="@Email" required>
+        </div>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="password" id="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="date" id="birthdate" name="birthdate" placeholder="mm/dd/yyyy" required>
+        </div>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}"
+            placeholder="1234567890" required>
+        </div>
+        <fieldset id="mailingAddressContainer">
+          <legend class="fw-bold">Mailing Information</legend>
+          <div class="form-group form-floating">
+            <input class="inputValues" type="text" id="address" name="address" placeholder="Address" required>
+          </div>
+          <div class="addressWrapper">
+            <div class="city form-floating" id="cityWrapper">
+              <input class="inputValues" type="text" id="city" name="city" placeholder="City" required>
+            </div>
+            <div class="form-group form-floating">
+              <input class="inputValues" type="text" id="state" name="state" maxlength="2" placeholder="State" required>
+            </div>
+          </div>
+          <div class="form-group form-floating">
+            <input class="inputValues" type="tel" id="zip" name="zip" maxlength="5" placeholder="Zip Code" required>
+          </div>
+        </fieldset>
+        <div class="form-group">
+          <select class="form-select" id="profileImage" name="profileImage" placeholder="Select Profile Image">
+            <option value="default">Select an image</option>
+            <option value="../images/eyesClosed.jpeg">Male</option>
+            <option value="../images/youngDunia.png">female</option>
+          </select>
+        </div>
+        <!-- Display whether the signup was successful or if user already exists -->
+        <div id="formMsg" class=""></div>
+        <div class="buttonContainer">
+          <button class="fw-bold" id="saveProfileBtn" type="submit">Save Profile</button>
+          <button class="fw-bold closeFormBtn" type="btn">Close</button>
+        </div>
+      </form>
+    </div>
+    <!-- SIGN IN FORM -->
+    <div id="customerSignInForm">
+      <form id="signInForm" hidden>
+        <legend class="fw-bold">Log In</legend>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="name" id="signInUsername" placeholder="Username" name="signInUsername">
+        </div>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="password" id="signInPassword" placeholder="Password" name="signInPassword" />
+        </div>
+        <div id="loginFormMsg" class=""></div>
+        <div class="buttonContainer">
+          <button class="fw-bold" id="signInBtn" type="submit">Log In</button>
+          <button class="fw-bold closeFormBtn" type="btn">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- HERE IS THE SECTION FOR THE LOGOUT CONTROLS -->
+  <section id="logoutSect"></section>
+  </div>
+  <!--  MODAL TO DISPLAY DELETE ACCOUNT CONFIRMATION -->
+  <!-- Modal -->
+  <div class="modal fade" id="deleteAccoutModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="deleteAccoutModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img id="deleteAccountModalLogo" class="sunKissedLogo" src="../images/sunKissedLogo.png" alt="sunKissedLogo">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="deleteAccountMsg">Are you sure you want to delete account?</p>
+        </div>
+        <div class="modal-footer">
+          <input type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" value="Close">
+          <input id="deleteAccountBtnConfirmation" type="button" class="btn btn-outline-success" value="Delete">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL TO DISPLAY LOGOUT CONFIRMATION -->
+  <!-- Modal -->
+  <div class="modal fade" id="logoutModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img id="deleteAccountModalLogo" class="sunKissedLogo" src="../images/sunKissedLogo.png" alt="sunKissedLogo">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="logoutAccountMsg">Are you sure you want to log out?</p>
+        </div>
+        <div class="modal-footer">
+          <input type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" value="Close">
+          <input id="logoutBtnConfirmation" type="button" class="btn btn-outline-success" value="Logout">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <header>
+    <a href="#" class="logo">Purchase replica art & our custom pieces</a>
+    <div id="cart-icon">
+      <i>🛒</i>
+      <span class="cart-item-count"></span>
+    </div>
+  </header>
+
+  <div class="cart">
+    <h2 class="cart-title">Your Cart</h2>
+
+    <div class="cart-content"></div>
+
+    <div class="total">
+      <div class="total-title">Total</div>
+      <div class="total-price">$0</div>
+    </div>
+    <!-- Bootstrap Progress Bar -->
+    <div class="cartBottom">
+      <button class="btn-buy">Buy Now</button>
+      <i class="ri-close-line" id="cart-close">x</i>
+
+      <div hidden class="progress" style="height: 30px; width: 200px">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: 0%;"
+          role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"> Confirming</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- GRID WITH THE DIFFERENT ARTWORK FOR SALE -->
+  <section class="shop">
+    <h1 class="section-title">Shop Art</h1>
+    <div class="product-content">
+
+      <div class="product-box">
+        <div class="img-box">
+          <img class="shop-img" src="../images/shopImgs/artWork.png" alt="shopArt">
+        </div>
+        <h2 class="product-title">Abstract Thoughts</h2>
+        <div class="price-and-cart">
+          <span class="price">$10.54</span>
+          <i class="fa fa-shopping-cart add-cart"></i>
+        </div>
+      </div>
+
+      <div class="product-box">
+        <div class="img-box">
+          <img class="shop-img" src="../images/shopImgs/phoneBooth.png" alt="shopArt">
+        </div>
+        <h2 class="product-title">What Cell Phone?</h2>
+        <div class="price-and-cart">
+          <span class="price">$12.99</span>
+          <i class="fa fa-shopping-cart add-cart"></i>
+        </div>
+      </div>
+
+      <div class="product-box">
+        <div class="img-box">
+          <img class="shop-img" src="../images/shopImgs/santa.png" alt="shopArt">
+        </div>
+        <h2 class="product-title">Santa's unemployed</h2>
+        <div class="price-and-cart">
+          <span class="price">$14.84</span>
+          <i class="fa fa-shopping-cart add-cart"></i>
+        </div>
+      </div>
+
+      <div class="product-box">
+        <div class="img-box">
+          <img class="shop-img" src="../images/shopImgs/malcolm.png" alt="malcolm-x shopArt">
+        </div>
+        <h2 class="product-title">Long Live Malcolm</h2>
+        <div class="price-and-cart">
+          <span class="price">$27.43</span>
+          <i class="fa fa-shopping-cart add-cart"></i>
+        </div>
+      </div>
+
+      <div class="product-box">
+        <div class="img-box">
+          <img class="shop-img" src="../images/shopImgs/geeking.png" alt="geeking shopArt">
+        </div>
+        <h2 class="product-title">Long nights with coffee</h2>
+        <div class="price-and-cart">
+          <span class="price">$12.32</span>
+          <i class="fa fa-shopping-cart add-cart"></i>
+        </div>
+      </div>
+
+      <div class="product-box">
+        <div class="img-box">
+          <img class="shop-img" src="../images/shopImgs/khufuPics2.png" alt="shopArt">
+        </div>
+        <h2 class="product-title">Ride your own train</h2>
+        <div class="price-and-cart">
+          <span class="price">$19.00</span>
+          <i class="fa fa-shopping-cart add-cart"></i>
+        </div>
+      </div>
+
+      <div class="product-box">
+          <div class="img-box">
+            <img class="shop-img" src="../images/shopImgs/basketball.png" alt="shopArt">
+          </div>
+          <h2 class="product-title">shut up & dribble</h2>
+          <div class="price-and-cart">
+            <span class="price">$8.99</span>
+            <i class="fa fa-shopping-cart add-cart"></i>
+          </div>
+        </div>
+
+      <div class="product-box">
+        <div class="img-box">
+          <img class="shop-img" src="../images/shopImgs/khufuPics3.png" alt="shopArt">
+        </div>
+        <h2 class="product-title">I woke up like this</h2>
+        <div class="price-and-cart">
+          <span class="price">$13.25</span>
+          <i class="fa fa-shopping-cart add-cart"></i>
+        </div>
+      </div>
+
+      <div class="product-box">
+        <div class="img-box">
+          <img class="shop-img" src="../images/shopImgs/moreArt.png" alt="shopArt">
+        </div>
+        <h2 class="product-title">BroCasso</h2>
+        <div class="price-and-cart">
+          <span class="price">$10.50</span>
+          <i class="fa fa-shopping-cart add-cart"></i>
+        </div>
+      </div>
+
+      <div class="product-box">
+        <div class="img-box">
+          <img class="shop-img" src="../images/shopImgs/number6.png" alt="number6 shopArt">
+        </div>
+        <h2 class="product-title">Balance</h2>
+        <div class="price-and-cart">
+          <span class="price">$18.00</span>
+          <i class="fa fa-shopping-cart add-cart"></i>
+        </div>
+      </div>
+
+
+      <div class="product-box">
+        <div class="img-box">
+          <img class="shop-img" src="../images/shopImgs/protest.png" alt="protest shopArt">
+        </div>
+        <h2 class="product-title">Still Breathing</h2>
+        <div class="price-and-cart">
+          <span class="price">$20.75</span>
+          <i class="fa fa-shopping-cart add-cart"></i>
+        </div>
+      </div>
+
+
+      <div class="product-box">
+        <div class="img-box">
+          <img class="shop-img" src="../images/shopImgs/thinkDifferently.png" alt="">
+        </div>
+        <h2 class="product-title">Wake Up</h2>
+        <div class="price-and-cart">
+          <span class="price">$15.00</span>
+          <i class="fa fa-shopping-cart add-cart"></i>
+        </div>
+      </div>
+
+  </section>
+  <!-- Footer -->
+  <footer class="container-fluid" id="contactFooter">
+      <div class="row">
+        <div class="addrContainer col ">
+          <address class="footerAddr">
+            <div>
+              <p>1619 Mission St. Los Angeles CA 90008</p>
+            </div>
+            <div>
+              <a class="contactInfo" href="#">sunkissedfoundation@gmail.org</a>
+            </div>
+            <div>
+              <a class="contactInfo" href="#">(310) 564-0981</a>
+            </div>
+          </address>
+  
+        </div>
+        <div class="col footerIcons">
+          <a href="./instagram.html" target="_blank"><img class="footerImg" id="instaImg"
+              src="../images/footerImgs/instagram copy.png" alt="instagram"></a>
+          <img class="footerImg" src="../images/footerImgs/facebook.png" alt="facebook">
+          <img class="footerImg" src="../images/footerImgs/linkedIn.png" alt="linkedIn">
+        </div>
+        <div class="copyrightContainer col">
+          <p> ©2005 Sun Kissed Foundation</p>
+        </div>
+      </div>
+    </footer>
+    <script>
+        if(!localStorage.getItem('currentUser')){
+            alert('You must be signed in to view this page!');
+            window.location.href ="../pages/home.html"
+        }
+    </script>
+  <!-- Bootstrap -->
+  <script src="https://cdn.tlm.cloud/bootstrap/5.2.3/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <!-- JavaScript -->
+  <script src="../script/main.js"></script>
+  <script src="../script/shop.js"></script>
+
+</body>
+
+</html>

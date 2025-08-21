@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>About Us Page</title>
+  <!-- css external -->
+  <link rel="stylesheet" href="../css/accordion.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/homePage.css">
+  <link rel="stylesheet" href="../css/aboutUs.css">
+ 
+  <!-- Bootstrap -->
+  <link href="https://cdn.tlm.cloud/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- BOOTSTRAP NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid ">
+    <div class="container-fluid">
+      <div class="innerNavFlexContainer">
+        <!-- Container for the company logo -->
+        <div class="profileContainer">
+          <div class="navbar-brand logo">
+            <a href="../index.html"> <img class="sunKissedLogo" src="../images/sunKissedLogo.png"
+                alt="Sun Kissed Foundation Logo"></a>
+          </div>
+          <div class="profileIconFlexContainer">
+            <!-- Container for the prepended Profile Icon -->
+            <h5 id="profileName"></h5>
+          </div>
+        </div>
+        <div class="rightSideInnerNavLinks">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav me-auto navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <a class="nav-item nav-link" aria-current="page" href="../pages/home.html">Home</a>
+              <a class="nav-item nav-link active" href="#">About us</a>
+              <a class="nav-item nav-link" href="../pages/gallery.html">Gallery</a>
+              <a class="nav-item nav-link" id="exhibitLink" href="../pages/exhibit.html">Exhibit</a>
+              <a class="nav-item nav-link" id="shop" href="../pages/shop.html">Shop</a>
+              <a class="nav-item nav-link" href="#contactFooter">Contact Us</a>
+              <a class="nav-item nav-link" href="#" id="loginBtn">Login</a>
+              <a class="nav-item nav-link" href="#" id="createNewAccountBtn">Create new account</a>
+
+              <!-- CUSTOMER PROFILE SIDE BAR -->
+              <button id="customerSideProfileBtn" class="btn btn-sm d-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#customerProfile" aria-controls="customerProfile">Customer
+                Profile</button>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- End of Bootstrap Navbar -->
+
+  <!--BOOTSTRAP OFFCANVAS SIDEBAR PROFILE  -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="customerProfile" aria-labelledby="offcanvas">
+    <div class="offcanvas-header">
+      <div class="innerOffCanvasHeader">
+        <div id="profilePicSideContainer">
+          <!-- using JS append profile Image here -->
+        </div>
+        <h5 id="offcanvasHeading">Customer Profile</h5>
+        <div id="sideBarCloseBtnContainer">
+          <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas"
+            aria-labelledby="offcanvas">X</button>
+        </div>
+      </div>
+      <div class="innerOffCanvasHeaderDiv">
+        <p id="sessionTimer"> 11:33:33</p>
+        <p id="dateDisplay"></p>
+      </div>
+    </div>
+    <div class="offcanvas-body">
+      <!-- List of side profile information -->
+      <ul id="sideProfileUl" class="list-group list-group-flush">
+        <a class="list-group-item list-group-item-action" href="#">Notification</a>
+        <a class="list-group-item list-group-item-action" href="#">Donations</a>
+        <a class="list-group-item list-group-item-action" href="#">Shopping Cart</a>
+        <a class="list-group-item list-group-item-action" href="#">Access Code</a>
+        <!-- Logout trigger for logout modal -->
+        <button type="button" id="logoutBtn" class="btn btn-outline-danger d-none" data-bs-toggle="modal"
+          data-bs-target="#logoutModal">
+          Logout
+        </button>
+
+        <!-- Button trigger delete account modal -->
+        <button type="button" id="deleteAccountBtn" class="btn btn-warning d-none" data-bs-toggle="modal"
+          data-bs-target="#deleteAccoutModal">
+          Delete Account
+        </button>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="container bioContainer">
+    <div class="row bioRow">
+      <div class="col">
+        <p id="bio">The Sun Kissed Foundation (SKF) in Los Angeles, California. showcases the history,
+          art,
+          and cultural richness that resulted from the African diaspora due to the migration of Africans throughout the
+          world. Our mission here at SKF is to highlight Historically Black College Universities (HBCU's) by purchasing
+          and donating artworks from their shared African heritage, paintings and sculptures that reflect the diversity
+          of
+          the hueman experience. SKF hosts exhibits/auctions where connoisseurs of art and diverse culture can bid for
+          artwork for the purpose of philanthropy.</p>
+      </div>
+      <div class="col">
+        <div class="container topImhotep">
+          <div>
+            <img id="imhotep" src="../images/aboutUsImgs/Imhotep-Louvre.jpeg" alt="Imhotep">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ARTISTS CAROUSEL SECTION -->
+    <div class="container">
+      <div class="row accordionRow">
+        <div class="col">
+          <section class="founderSect">
+
+            <h2 class="aboutH2">ARTISTS</h2>
+
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                  aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                  aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                  aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                  aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                  aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5"
+                  aria-label="Slide 6"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="../images/aboutUsImgs/kneelingSis.jpeg" class="d-block w-75" alt="sassySis">
+                  <div class="carousel-caption d-none d-md-block artistDesc">
+                    <h2 class="carouselTitle">Jazzmine Jones</h2>
+                    <p class="carouselP">This artist is a decorated painter and style influncer.</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="../images/aboutUsImgs/montana.jpeg" class="d-block w-75" alt="crew-member">
+                  <div class="carousel-caption d-none d-md-block artistDesc">
+                    <h2 class="carouselTitle">Ahmad Rich</h2>
+                    <p class="carouselP">This artist is a personal stylish and art collector.</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="../images/aboutUsImgs/sassySis.jpeg
+                            " class="d-block w-75" alt="crew-member">
+                  <div class="carousel-caption d-none d-md-block artistDesc">
+                    <h2 class="carouselTitle">Sarai Stevenson</h2>
+                    <p class="carouselP">This artist is a graphic designer and photographer.</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="../images/aboutUsImgs/badu.jpeg" class="d-block w-75" alt="crew-member">
+                  <div class="carousel-caption d-none d-md-block artistDesc">
+                    <h2 class="carouselTitle">Lauryn Scott</h2>
+                    <p class="carouselP">This artist is a holistic healer and cultural historian.</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="../images/aboutUsImgs/blackjoy.jpeg" class="d-block w-75" alt="crew-member">
+                  <div class="carousel-caption d-none d-md-block artistDesc">
+                    <h2 class="carouselTitle">King Khufu</h2>
+                    <p class="carouselP">This artist is a graphic designer and photographer.</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="../images/aboutUsImgs/kellyRowland.jpeg" class="d-block w-75" alt="crew-member">
+                  <div class="carousel-caption d-none d-md-block artistDesc">
+                    <h2 class="carouselTitle">Kele Stellan</h2>
+                    <p class="carouselP">This artist is a graphic designer and photographer.</p>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </section>
+        </div>
+        <!-- ACCORDION SECTION -->
+        <div class="col">
+          <div class="accordionContainer">
+            <h3 class="aboutH2">Our values are based on ancient African philosopher and builder IMHOTEP</h3>
+            <button class="accordion">Mission Statement</button>
+            <div class="panel">
+              <p class="mission-content"> Sun Kissed Foundation aims to bridge the gap between all disparites in social
+                and economic issues. </p>
+            </div>
+
+
+            <button class="accordion">I</button>
+            <div class="panel">
+              <p class="i-content"> <span class="accSym">INTEGRITY: </span> adherence to a set of values, soundness,
+                completeness</p>
+            </div>
+
+            <button class="accordion">M</button>
+            <div class="panel">
+              <p class="m-content"><span class="accSym"> MORALITY:</span> knowledge of right and wrong in accordance
+                with one's behavior and values</p>
+            </div>
+
+            <button class="accordion">H</button>
+            <div class="panel">
+              <p class="h-content"><span class="accSym">HONESTY: </span> truthfulness and transparency</p>
+            </div>
+
+            <button class="accordion">O</button>
+            <div class="panel">
+              <p class="o-content"><span class="accSym">ORIGINALITY: </span>originating from oriri meaning [to rise]</p>
+            </div>
+
+            <button class="accordion">T</button>
+            <div class="panel">
+              <p class="t-content"><span class="accSym">TOGETHERNESS: </span> collective progression</p>
+            </div>
+
+            <button class="accordion">E</button>
+            <div class="panel">
+              <p class="e-content"><span class="accSym">EXCELLENCE: to excel </span> in all endeavors</p>
+            </div>
+
+            <button class="accordion">P</button>
+            <div class="panel">
+              <p class="p-content"><span class="accSym"> PRIDE OF PEOPLE: </span>knowledge of self and promotion of a
+                one's own identity</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- FOUNDERS SECTION -->
+  <section class="container">
+    <div class="founderContainer">
+      <div class="founders">
+        <img class="founderImg" src="../images/aboutUsImgs/blackjoy.jpeg" alt="founder">
+        <div class="founderInfoBox">
+          <h2 class="founderName">Khufu Mosby</h2>
+          <h3 class="founderTitle"><em>Founder</em></h3>
+        </div>
+      </div>
+      <div class="founders">
+        <img class="founderImg" src="../images/aboutUsImgs/sassySis.jpeg" alt="founder">
+        <div class="founderInfoBox">
+          <h2 class="founderName">Sarai Stevenson</h2>
+          <h3 class="founderTitle"><em>Co-Founder</em></h3>
+        </div>
+      </div>
+      <div class="founders">
+        <img class="founderImg" src="../images/aboutUsImgs/scholar.jpeg" alt="Investor">
+        <div class="founderInfoBox">
+          <h2 class="founderName">Winston Brown</h2>
+          <h3 class="founderTitle"><em>Associate</em></h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- COMMENT SECTION -->
+  <div class="container-fluid commentWrapper">
+    <div>
+      <div class="topCommentSect">
+        <h3 id="h3Comment">DROP A COMMENT</h3>
+        <button class="btn btn-outline-secondary" id="commentBtn">➕</button>
+      </div>
+      <div hidden class="newCommentWrap">
+        <span id="errorComm"></span>
+        <textarea name="newCommentText" id="newCommentText" cols="50" rows="2"
+          placeholder="ADD COMMENT HERE"></textarea>
+        <button class="btn btn-outline-success" id="submitCommentBtn">Add Comment</button>
+      </div>
+    </div>
+    <!-- Actual inner comment section -->
+    <div class="commentContainer">
+
+      <div class="profileWrap">
+        <div class="imgWrapper">
+          <img class="userCommentImg" src="../images/commentImgs/jumping_photo.jpeg" alt="user">
+
+          <div class="usernameContainer">
+            <h6 class="userCommentName">☥liveLifeFly△</h6>
+          </div>
+        </div>
+
+        <div class="userCommentContainer">
+          <p class="comment">Sun Kissed Foundation gave me an opportunity to go to college. I really love everything
+            about what they stand for! 😀🖤</p>
+        </div>
+        <span class="daySpan">Fri May 19 2025</span>
+      </div>
+
+      <div class="profileWrap">
+        <div class="imgWrapper">
+          <img class="userCommentImg" src="../images/commentImgs/maskFace.jpeg" alt="user">
+
+          <div class="usernameContainer">
+            <h6 class="userCommentName">☥blkThought△</h6>
+          </div>
+        </div>
+        <div class="userCommentContainer">
+          <p class="comment">I buy some Khufu art once a month! Keep em coming... 👑</p>
+        </div>
+        <span class="daySpan">Fri Apr 23 2025</span>
+      </div>
+
+      <div class="profileWrap">
+        <div class="imgWrapper">
+          <img class="userCommentImg" src="../images/commentImgs/girlWRecord.jpeg" alt="user">
+
+          <div class="usernameContainer">
+            <h6 class="userCommentName">☥melanieMoves△</h6>
+          </div>
+        </div>
+        <div class="userCommentContainer">
+          <p class="comment">this site is 🔥 🔥 🔥</p>
+        </div>
+        <span class="daySpan">Mon Mar 04 2025</span>
+      </div>
+
+      <div class="profileWrap">
+        <div class="imgWrapper">
+          <img class="userCommentImg" src="../images/commentImgs/sophiaReview.png" alt="user">
+
+          <div class="usernameContainer">
+            <h6 class="userCommentName">☥sophiaSoso△</h6>
+          </div>
+        </div>
+        <div class="userCommentContainer">
+          <p class="comment">All of the art exhibits has increased my desire to learn more about other people's culture 👍🏾</p>
+        </div>
+        <span class="daySpan">Sat Feb 14 2025</span>
+      </div>
+    </div>
+  </div>
+  <!-- END OF THE COMMENT SECTION -->
+
+  <!-- Container to hold both forms the sign-in and sign-up -->
+  <div class="mainFormContainer position-absolute">
+    <!-- SIGN UP FORM  -->
+    <div id="customerSignUpFormContainer">
+      <form id="customerForm" hidden>
+        <legend class="fw-bold">Profile Information</legend>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="name" placeholder="Name" id="fullname" name="fullname"
+            aria-describedby="fullname" required>
+        </div>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="text" id="username" name="username" placeholder="Username" required>
+        </div>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="email" id="email" name="email" placeholder="@Email" required>
+        </div>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="password" id="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="date" id="birthdate" name="birthdate" placeholder="mm/dd/yyyy" required>
+        </div>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}"
+            placeholder="1234567890" required>
+        </div>
+        <fieldset id="mailingAddressContainer">
+          <legend class="fw-bold">Mailing Information</legend>
+          <div class="form-group form-floating">
+            <input class="inputValues" type="text" id="address" name="address" placeholder="Address" required>
+          </div>
+          <div class="addressWrapper">
+            <div class="city form-floating" id="cityWrapper">
+              <input class="inputValues" type="text" id="city" name="city" placeholder="City" required>
+            </div>
+            <div class="form-group form-floating">
+              <input class="inputValues" type="text" id="state" name="state" maxlength="2" placeholder="State" required>
+            </div>
+          </div>
+          <div class="form-group form-floating">
+            <input class="inputValues" type="tel" id="zip" name="zip" maxlength="5" placeholder="Zip Code" required>
+          </div>
+        </fieldset>
+        <div class="form-group">
+          <select class="form-select" id="profileImage" name="profileImage" placeholder="Select Profile Image">
+            <option value="default">Select an image</option>
+            <option value="../images/eyesClosed.jpeg">Male</option>
+            <option value="../images/youngDunia.png">female</option>
+          </select>
+        </div>
+        <!-- Display whether the signup was successful or if user already exists -->
+        <div id="formMsg" class=""></div>
+        <div class="buttonContainer">
+          <button class="fw-bold" id="saveProfileBtn" type="submit">Save Profile</button>
+          <button class="fw-bold closeFormBtn" type="btn">Close</button>
+        </div>
+      </form>
+    </div>
+    <!-- SIGN IN FORM -->
+    <div id="customerSignInForm">
+      <form id="signInForm" hidden>
+        <legend class="fw-bold">Log In</legend>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="name" id="signInUsername" placeholder="Username" name="signInUsername">
+        </div>
+        <div class="form-group form-floating">
+          <input class="inputValues" type="password" id="signInPassword" placeholder="Password" name="signInPassword" />
+        </div>
+        <div id="loginFormMsg" class=""></div>
+        <div class="buttonContainer">
+          <button class="fw-bold" id="signInBtn" type="submit">Log In</button>
+          <button class="fw-bold closeFormBtn" type="btn">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- HERE IS THE SECTION FOR THE LOGOUT CONTROLS -->
+  <section id="logoutSect"></section>
+  </div>
+  <!--  MODAL TO DISPLAY DELETE ACCOUNT CONFIRMATION -->
+  <!-- Modal -->
+  <div class="modal fade" id="deleteAccoutModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="deleteAccoutModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img id="deleteAccountModalLogo" class="sunKissedLogo" src="../images/sunKissedLogo.png" alt="sunKissedLogo">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="deleteAccountMsg">Are you sure you want to delete account?</p>
+        </div>
+        <div class="modal-footer">
+          <input type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" value="Close">
+          <input id="deleteAccountBtnConfirmation" type="button" class="btn btn-outline-success" value="Delete">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL TO DISPLAY LOGOUT CONFIRMATION -->
+  <!-- Modal -->
+  <div class="modal fade" id="logoutModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img id="deleteAccountModalLogo" class="sunKissedLogo" src="../images/sunKissedLogo.png" alt="sunKissedLogo">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="logoutAccountMsg">Are you sure you want to log out?</p>
+        </div>
+        <div class="modal-footer">
+          <input type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" value="Close">
+          <input id="logoutBtnConfirmation" type="button" class="btn btn-outline-success" value="Logout">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="container-fluid" id="contactFooter">
+    <div class="row">
+      <div class="addrContainer col ">
+        <address class="footerAddr">
+          <div>
+            <p>1619 Mission St. Los Angeles CA 90008</p>
+          </div>
+          <div>
+            <a class="contactInfo" href="#">sunkissedfoundation@gmail.org</a>
+          </div>
+          <div>
+            <a class="contactInfo" href="#">(310) 564-0981</a>
+          </div>
+        </address>
+
+      </div>
+      <div class="col footerIcons">
+        <a href="./instagram.html" target="_blank"><img class="footerImg" id="instaImg"
+            src="../images/footerImgs/instagram copy.png" alt="instagram"></a>
+        <img class="footerImg" src="../images/footerImgs/facebook.png" alt="facebook">
+        <img class="footerImg" src="../images/footerImgs/linkedIn.png" alt="linkedIn">
+      </div>
+      <div class="copyrightContainer col">
+        <p> ©2005 Sun Kissed Foundation</p>
+      </div>
+    </div>
+  </footer>
+  <!-- Bootstrap -->
+  <script src="https://cdn.tlm.cloud/bootstrap/5.2.3/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <!-- JavaScript -->
+  <script src="../script/main.js"></script>
+  <script src="../script/accordion.js"></script>
+</body>
+
+</html>

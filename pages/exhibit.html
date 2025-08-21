@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Online Carousel Page</title>
+    <link rel="stylesheet" href="../css/exhibit.css">
+    
+</head>
+
+<body>
+   
+    <figure class="logoContainer">
+        <a class="mainLogo sunKissedLogo" href="../pages/home.html"><img src="../images/sunKissedLogo.png"
+                alt="main logo"> </a>
+    </figure>
+
+    <div id="drag-container">
+        <div id="spin-container">
+            <!-- add images -->
+            <img src="../images/ExhibitImgs/Dombis_1687.jpeg" alt="Dombis_1687">
+            <img src="../images/ExhibitImgs/digitalArt.jpeg" alt="digitalArt">
+            <img src="../images/ExhibitImgs/floorDesign.jpeg" alt="floorDesign">
+            <img src="../images/ExhibitImgs/night-lights.jpeg" alt="night-lights">
+            <img src="../images/ExhibitImgs/Condensation_Cube_of_Haacke.jpeg" alt="">
+            <img src="../images/ExhibitImgs/exhibit.jpeg" alt="exhibit">
+            <img src="../images/sphinx.jpeg" alt="sphinx">
+            <img src="../images/commentImgs/maskFace.jpeg" alt="maskFace">
+
+            <!-- ground -->
+            <img class="sunKissedLogo" src="../images/sunKissedLogo.png" alt="Sun Kissed Foundation Logo">
+        </div>
+        <div id="ground"></div>
+    </div>
+    <script>
+        if(!localStorage.getItem('currentUser')){
+            alert('You must be signed in to view this page!');
+            window.location.href ="../pages/home.html"
+        }
+    </script>
+
+    <script src="../script/exhibit.js"></script>
+    <script src="../script/main.js"></script>
+</body>
+</html>

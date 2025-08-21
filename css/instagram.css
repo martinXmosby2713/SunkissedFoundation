@@ -1,0 +1,29 @@
+/* Instagram */
+.instaBody{
+    background: url(../images/footerImgs/FinstaGram.png) no-repeat ;
+    background-size: contain;
+    background-position-x: center;
+    background-color: currentColor;
+    height: 100vh;
+}
+#instaBackButton{
+    height: 4em;
+    width: 10em;
+    border-radius: 2px;
+    background-color: transparent;
+    filter: drop-shadow(1px 3px 2px white);
+    position: relative;
+    top: 9em;
+    left: 2em
+}
+
+#instaBackButton a{
+    color:#ffffff75;
+}
+#instaBackButton:hover{
+    cursor: pointer;
+}
+#instaSpan{
+    font-size: 22px;
+    color: white;
+}

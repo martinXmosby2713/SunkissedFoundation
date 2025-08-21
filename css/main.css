@@ -1,0 +1,465 @@
+html{
+    box-sizing: border-box;
+}
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+body{
+    margin: 0;
+    background: linear-gradient(272deg, rgb(179 170 125 / 87%), #00000000);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    overflow-x: hidden;
+}
+nav{
+    margin-bottom: 3em;
+    border-bottom: 3px ridge brown;
+    position: fixed!important;
+    z-index: 99;
+}
+/* Nav link active */
+.active{
+    font-style: oblique;
+    transform: scale(.9);
+    text-decoration-color: black;
+    -webkit-box-reflect: below -15px linear-gradient(transparent, #0005);
+}
+h1, h2, h3{
+    text-align: center;
+}
+/* LANDING PAGE */
+#landingLeftCol{
+    background: linear-gradient(to top, rgb(31 31 31 / 74%) 50%, #f2f21a5f ), url(https://lightbox.tlm.cloud/uploads/medium/42e6b1c570d7d7d78ee49f839d1d4c84.jpeg);
+    background-size: cover;
+    background-position-y: 20%;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4em;
+    filter: drop-shadow(9px 3px 30px #fbfbc8);
+}
+#landingH1{
+    color: #ffcb00;
+    font-size: 6rem;
+    -webkit-text-stroke: 0.5rem #ffffae;
+    letter-spacing: 13px;
+}
+#landingPara{
+    color: #f7f7f7;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-top: 1em;
+    text-shadow: 0 0 2px #ffffa8;
+    letter-spacing: 1px;
+}
+#landingLogo{
+    width: 13rem;
+    margin-top: 5em;
+}
+.companyTitleBox{
+    flex-basis: 50%;
+    margin-bottom: 4em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.companyName{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.landingBlurb{
+    width: 400px;
+}
+#spanFoundation{
+    color: #6f2222d9;
+    -webkit-text-stroke: 10px #b40713c4;
+    font-size: 3rem;
+    letter-spacing: 10px;
+}
+#landingSignInBtn{
+    text-decoration: none!important;
+    text-transform: uppercase;
+    text-shadow: 0 0 4px #ffffa8;
+    font-size: 16px;
+    padding: 5px 17px;
+    letter-spacing: 2px;
+    border: 2px solid #ffffae;
+    box-shadow: 4px 8px 4px black;
+    color: white!important;
+    border-radius: 5px;
+    width: 10em;
+    text-align: center;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #00000078;
+}
+#landingSignInBtn:hover{
+    background: rgba(160, 67, 67, 0.529);
+    color: black;
+    cursor: pointer;
+}
+#signInBtnContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 3rem;
+   
+}
+/* END OF LANDING PAGE */
+/* NAVBAR */
+.profileContainer{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    width: inherit;
+    flex-basis: 50%;
+    justify-content: inherit;
+    flex-direction: row-reverse;
+}
+.profileIconFlexContainer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 5px;
+}
+#profileName{
+    color: #ffffae;
+    margin: 0;
+}
+.profileSpanIcon{
+    color: white;
+}
+.innerNavFlexContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: inherit;
+    align-items: center;
+}
+.sunKissedLogo{
+    width: 5rem;
+    filter: saturate(171) invert(1) hue-rotate(198deg) brightness(2);
+}
+#customerSideProfileBtn{
+    color: #fafa85;
+    border-color: #ffffae;
+}
+/* END OF NAVBAR */
+/* Sign Up Profile Form*/
+#customerSignUpFormContainer, #customerSignInForm{
+    position: relative;
+    top: 10em;
+}
+#customerForm, #signInForm {
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(0 0 0);
+    border: 0.5px solid #ffffae;
+    width: 22rem;
+    background: #000000bf;
+}
+#signUpH5, .contactInfo{
+    text-align: center;
+    color: #a8a846;
+}
+.form-group {
+    margin-bottom: 8px;
+}
+label {
+    display: block;
+    margin-bottom: 3px;
+    font-weight: bold;
+}
+input, select {
+    width: 100%;
+    padding: 4px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+fieldset {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+}
+legend {
+    margin-bottom: 0.5rem;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-shadow: 0 0 2px #ffffae;
+    -webkit-text-stroke: 3px white;
+}
+#saveProfileBtn, #signInBtn {
+    background: #bc5a5a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1em;
+}
+#profile-display {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f0f0f0;
+    border-radius: 8px;
+}
+.addressWrapper{
+    display: flex;
+    gap: 1em;
+}
+#cityWrapper{
+    flex-basis: 80%;
+}
+#profileImgIcon{
+    width: 3em;
+    border-radius: 50%;
+    height: 3em;
+    border: .5px solid #ffffae;
+}
+/* form error messages or success */
+.formError{
+    color: red;
+    text-align: center;
+    font-weight: 600;
+}
+.hidden{
+    display: none;
+}
+.successfulSignup{
+    font-weight: 600;
+    color: rgb(2, 97, 2);
+    text-align: center;
+}
+/* Sign in Profile Form */
+.closeFormBtn{
+    background: #010000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1em;
+}
+#loginFormMsg{
+    color: red;
+    text-align: center;
+}
+.mainFormContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    width: 100%;
+    align-content: center;
+    align-items: center;
+    gap: 1em;
+    position: relative;
+    z-index: 1;
+}
+/* PROFILE SIDE BAR */
+.offcanvas{
+    background-color: transparent!important;
+    border: 0.5px solid #ffffae;
+    border-radius: 10px;
+    color: white!important;
+    border-top: none;
+    border-left: none;
+}
+.offcanvas-header{
+    background: black;
+    border-radius: 10px 24px 0px 0px;
+    display: block!important;
+}
+.offcanvas-body{
+    color: #ffffae;
+    background: linear-gradient(45deg, #6c6b58, transparent);
+    border-top: 5px solid #b5323c;
+}
+#sideProfileUl{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.list-group .list-group-item{
+    background: transparent;
+    color: #fff;
+    font-size: 1rem;
+    text-shadow: 3px 2px 5px black;
+}
+.innerOffCanvasHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.innerOffCanvasHeaderDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-top: 1em;
+}
+/* Delete Account Modal */
+.modal-content{
+    background: #000000d6!important;
+    border: 2px solid #7d5b12!important;
+}
+.modal-header{
+    border-bottom: none!important;
+    align-self: center;
+}
+.modal-body{
+    border-top: 2px solid #7f5d12!important;
+    color: white!important;
+    text-align: center;
+    font-size: 1.4em;
+}
+.modal-footer{
+    border-top: none!important;
+}
+#logoutBtn{
+    color: white;
+}
+@media screen and (min-width: 375px) and (max-width: 575px){
+    #landingH1{
+        color: #000;
+        font-size: 2rem;
+        -webkit-text-stroke: 0.5rem #ffffae;
+        letter-spacing: 10px;
+        gap: 1rem;
+    }
+   
+    #landingLogo {
+        width: 8rem;
+        margin-top: 1em;
+    }
+    #landingPara {
+        font-size: 1rem;
+        margin-top: 2em;
+    }
+    #signInBtnContainer {
+        height: 2rem;
+    }
+    #spanFoundation {
+        font-size: 1rem;
+    }
+    .companyTitleBox {
+        margin-bottom: 1em;
+    }
+    #landingLeftCol {
+        background: linear-gradient(to top, rgb(31 31 31 / 74%) 50%, #f2f21a5f ), url(../images/sphinx.jpeg);
+        background-size: cover;
+        background-position-y: 20%;
+        background-position-x: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 4em;
+        filter: drop-shadow(9px 3px 30px #fbfbc8);
+    }
+}
+/* ART IS TRANSFORMATIVE */
+.loaderContainer{
+    width: 100%;
+}
+.artIsTransformative{
+    position: relative;
+    width: 100%;
+}
+.artIsTransformative h1{
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .1);
+    background-image: url(../images/transformative.jpeg);
+    background-position-y: bottom;
+    -webkit-background-clip: text;
+    animation: animate 60s linear infinite;
+    text-align: center;
+    text-shadow: 1px -4px 4px #af681645;
+}
+@keyframes animate{
+    0%
+    {
+        background-position: left 0px top 80px;
+    }
+    40%
+    {
+        background-position: left 880px top 80px;
+    }
+    80%
+    {
+        background-position: left 1800px top 80px;
+    }
+    100%
+    {
+        background-position: left 2400px top 80px;
+    }
+}
+@media screen and (max-width: 1199px){
+    .addrContainer{
+        display: flex;
+        justify-content: center;
+    }
+    .copyrightContainer{
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    .footerAddr{
+        display: flex;
+        flex-direction: column;
+        align-items: center!important;
+    }
+}
+footer{
+    height: fit-content;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #00000094;
+    color: #ffffae;
+}
+footer a:hover, footer p:hover{
+    text-shadow: 0px 0px 8px #c88a8a;
+    cursor: pointer;
+    color: brown;
+}
+.footerImg{
+    width: 2em;
+}
+#instaImg{
+    height: 2.3em;
+    filter: invert(1);
+}
+.footerIcons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3em;
+}
+.copyrightContainer{
+    display: flex;
+    align-items: center;
+}
+.footerAddr{
+    display: flex;
+    flex-direction: column;
+    align-items: self-end;
+}
